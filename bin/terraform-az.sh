@@ -436,9 +436,12 @@ if [ "${bootstrap}" == "true" ]; then
 else
   # Set the relevant params for az cli
   # tf_var_params+=" -var subscription_id=${subscription_id}";
-  if [ ! -z "${region}" ]; then tf_var_params+=" -var tenant=${tenant}"; fi;
-  if [ ! -z "${region}" ]; then tf_var_params+=" -var app_id=${app_id}"; fi;
-  if [ ! -z "${region}" ]; then tf_var_params+=" -var service_principal_object_id=${az_service_principal_object_id}"; fi;
+  if [ ! -z "${tenant}" ]; then tf_var_params+=" -var tenant=${tenant}"; fi;
+  if [ ! -z "${app_id}" ]; then tf_var_params+=" -var app_id=${app_id}"; fi;
+  if [ ! -z "${az_service_principal_object_id}" ]; then tf_var_params+=" -var service_principal_object_id=${az_service_principal_object_id}"; fi;
+  if [ ! -z "${region}" ]; then tf_var_params+=" -var region=${region}"; fi;
+  if [ ! -z "${project}" ]; then tf_var_params+=" -var project=${project}"; fi;
+  if [ ! -z "${environment}" ]; then tf_var_params+=" -var environment=${environment}"; fi;
 
   # Run pre.sh
   if [ -f "pre.sh" ]; then
