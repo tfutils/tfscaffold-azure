@@ -435,9 +435,9 @@ if [ "${bootstrap}" == "true" ]; then
   if [ ! -z "${app_id}" ]; then tf_var_params+=" -var app_id=${app_id}"; fi;
 else
   # Set the relevant params for az cli
-  # tf_var_params+=" -var subscription_id=${subscription_id}";
   if [ ! -z "${tenant}" ]; then tf_var_params+=" -var tenant=${tenant}"; fi;
   if [ ! -z "${app_id}" ]; then tf_var_params+=" -var app_id=${app_id}"; fi;
+  if [ ! -z "${password}" ]; then tf_var_params+=" -var password=${password}"; fi;
   if [ ! -z "${az_service_principal_object_id}" ]; then tf_var_params+=" -var service_principal_object_id=${az_service_principal_object_id}"; fi;
   if [ ! -z "${region}" ]; then tf_var_params+=" -var region=${region}"; fi;
   if [ ! -z "${project}" ]; then tf_var_params+=" -var project=${project}"; fi;
