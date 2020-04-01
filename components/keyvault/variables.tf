@@ -29,6 +29,11 @@ variable "service_principal_object_id" {
   description = "The service principal object id"
 }
 
+variable "password" {
+  type        = "string"
+  description = "The service principal password/client secret"
+}
+
 variable "passwordy_mcssl_passwordface" {
   type        = "string"
   description = "The auto prompt for ssl certificate password"
