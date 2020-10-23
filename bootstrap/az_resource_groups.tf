@@ -1,8 +1,8 @@
 resource "azurerm_resource_group" "tfstate" {
   name     = "tfstate"
-  location = "${var.region}"
+  location = var.region
 
   tags = {
-    environment = "${var.environment}"
+    environment = var.environment
   }
 }

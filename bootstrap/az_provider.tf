@@ -1,6 +1,7 @@
-# The default AWS provider in the default region
+# The default Azure provider in the default region
 provider "azurerm" {
-  version = "=1.29.0"
+  version = "=2.33.0"
+  features {}
 }
 
 provider "local" {

@@ -1,17 +1,15 @@
 resource "azurerm_key_vault" "keyvault" {
   name                        = "${var.project}-kv-${var.environment}"
-  location                    = "${azurerm_resource_group.keyvault.location}"
-  resource_group_name         = "${azurerm_resource_group.keyvault.name}"
+  location                    = azurerm_resource_group.keyvault.location
+  resource_group_name         = azurerm_resource_group.keyvault.name
   enabled_for_disk_encryption = true
-  tenant_id                   = "${var.tenant}"
+  tenant_id                   = var.tenant
 
-  sku {
-    name = "standard"
-  }
+  sku_name = "standard"
 
   access_policy {
-    tenant_id = "${var.tenant}"
-    object_id = "${var.service_principal_object_id}"
+    tenant_id = var.tenant
+    object_id = var.service_principal_object_id
 
     key_permissions = [
       "backup",
@@ -62,6 +60,6 @@ resource "azurerm_key_vault" "keyvault" {
   }
 
   tags = {
-    environment = "${var.environment}"
+    environment = var.environment
   }
 }

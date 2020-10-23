@@ -598,7 +598,12 @@ readonly backend_config="terraform {
     tenant_id            = \"${tenant}\"
     resource_group_name  = \"tfstate\"
   }
-}";
+}
+provider \"azurerm\" {
+  version         = \"~> 2.33.0\"
+  features {}
+}
+";
 
 # We're now all ready to go. All that's left is to:
 #   * Write the backend config
